@@ -44,12 +44,15 @@
   <!-- Contact Section -->
   <section id="contact">
     <h2>Contact Me</h2>
+    <p>Fill out the form below or email me directly.</p>
     <form name="contact" method="POST" data-netlify="true" class="contact-form">
+      <input type="hidden" name="form-name" value="contact">
       <input type="text" name="name" placeholder="Your Name" required>
       <input type="email" name="email" placeholder="Your Email" required>
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send</button>
     </form>
+    <p class="form-success" style="display:none;">✅ Thanks! Your message has been sent.</p>
     <p>Email: <a href="mailto:vanillasuriva@gmail.com">vanillasuriva@gmail.com</a></p>
     <p>Discord: <strong>xvortexed</strong></p>
   </section>
@@ -57,5 +60,22 @@
   <footer>
     <p>© 2025 xVortexed — Minecraft Developer</p>
   </footer>
+
+  <script>
+    // Netlify form submission with success message
+    const form = document.querySelector('form[name="contact"]');
+    const successMsg = document.querySelector('.form-success');
+
+    form.addEventListener('submit', function(e) {
+      e.preventDefault();
+      fetch('/', {
+        method: 'POST',
+        body: new FormData(form)
+      }).then(() => {
+        form.style.display = 'none';
+        successMsg.style.display = 'block';
+      }).catch(err => alert('Error sending form!'));
+    });
+  </script>
 </body>
 </html>
