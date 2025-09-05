@@ -4,19 +4,20 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>xVortexed | Minecraft Developer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Hero Section -->
   <header class="hero">
-    <h1>👾 xVortexed</h1>
-    <p>Head Developer</p>
-    <p>Hire me as your <span class="highlight">Dev for your Minecraft Server</span></p>
+    <h1 class="glow-text">👾 xVortexed</h1>
+    <p class="glow-text small">Head Developer</p>
+    <p class="glow-text">Hire me as your <span class="highlight">Dev for your Minecraft Server</span></p>
     <a href="#contact" class="btn">Hire Me</a>
   </header>
 
   <!-- About Section -->
-  <section id="about">
+  <section id="about" class="section-light">
     <h2>About Me</h2>
     <p>
       Hi! I’m <strong>xVortexed</strong>, a Minecraft Developer specializing in custom plugins, server setups, and gameplay optimization.
@@ -24,7 +25,7 @@
   </section>
 
   <!-- Servers Section -->
-  <section id="servers">
+  <section id="servers" class="section-dark">
     <h2>Servers I've Worked On</h2>
     <div class="server-card">
       <h3>CrimsonWild</h3>
@@ -34,7 +35,7 @@
   </section>
 
   <!-- Discord Section -->
-  <section id="discord">
+  <section id="discord" class="section-light">
     <h2>Join My Discord</h2>
     <p>Connect with me and the community:</p>
     <a href="https://discord.gg/2czrg95BzW" target="_blank" class="btn">Join Discord</a>
@@ -42,7 +43,7 @@
   </section>
 
   <!-- Contact Section -->
-  <section id="contact">
+  <section id="contact" class="section-dark">
     <h2>Contact Me</h2>
     <p>Fill out the form below or email me directly.</p>
     <form name="contact" method="POST" data-netlify="true" class="contact-form">
@@ -57,24 +58,22 @@
     <p>Discord: <strong>xvortexed</strong></p>
   </section>
 
-  <footer>
+  <footer class="section-light">
     <p>© 2025 xVortexed — Minecraft Developer</p>
   </footer>
 
   <script>
-    // Netlify form submission with success message
     const form = document.querySelector('form[name="contact"]');
     const successMsg = document.querySelector('.form-success');
 
     form.addEventListener('submit', function(e) {
       e.preventDefault();
-      fetch('/', {
-        method: 'POST',
-        body: new FormData(form)
-      }).then(() => {
-        form.style.display = 'none';
-        successMsg.style.display = 'block';
-      }).catch(err => alert('Error sending form!'));
+      fetch('/', { method: 'POST', body: new FormData(form) })
+        .then(() => {
+          form.style.display = 'none';
+          successMsg.style.display = 'block';
+        })
+        .catch(err => alert('Error sending form!'));
     });
   </script>
 </body>
